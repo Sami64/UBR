@@ -557,6 +557,7 @@ GameObject:
   - component: {fileID: 295690715}
   - component: {fileID: 295690717}
   - component: {fileID: 295690716}
+  - component: {fileID: 295690718}
   m_Layer: 5
   m_Name: PlayBtnDrawer
   m_TagString: Untagged
@@ -576,9 +577,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 576060551}
-  - {fileID: 1454021082}
-  - {fileID: 1953845444}
   - {fileID: 396174539}
+  - {fileID: 1953845444}
+  - {fileID: 1454021082}
   m_Father: {fileID: 831113642}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -625,6 +626,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295690714}
   m_CullTransparentMesh: 1
+--- !u!95 &295690718
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295690714}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e58033cb8781c447804563631befc9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &309638355
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +931,7 @@ RectTransform:
   m_Children:
   - {fileID: 726052003}
   m_Father: {fileID: 295690715}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -961,7 +981,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 396174541}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 831113643}
+        m_TargetAssemblyTypeName: PlayButtonDrawer, Assembly-CSharp
+        m_MethodName: DrawerButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &396174541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,6 +1744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 831113642}
+  - component: {fileID: 831113643}
   m_Layer: 5
   m_Name: PlayMenu
   m_TagString: Untagged
@@ -1742,6 +1775,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &831113643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831113641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b67780c1a9ad40458a64ac02b59c855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawAnimator: {fileID: 295690718}
+  drawerOpen: 0
+  selectedMode: {fileID: 499401322}
+  topMode: {fileID: 726052004}
+  midMode: {fileID: 341937797}
+  botMode: {fileID: 113783928}
+  orderSet: 0
+  selectedPosition: 0
+  order: 
 --- !u!1 &1103481856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,7 +2127,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1210344673}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 831113643}
+        m_TargetAssemblyTypeName: PlayButtonDrawer, Assembly-CSharp
+        m_MethodName: DrawerPullClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1210344673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2210,7 +2276,7 @@ RectTransform:
   m_Children:
   - {fileID: 113783927}
   m_Father: {fileID: 295690715}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2260,7 +2326,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1454021084}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 831113643}
+        m_TargetAssemblyTypeName: PlayButtonDrawer, Assembly-CSharp
+        m_MethodName: DrawerButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1454021084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3055,7 +3133,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1953845446}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 831113643}
+        m_TargetAssemblyTypeName: PlayButtonDrawer, Assembly-CSharp
+        m_MethodName: DrawerButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1953845446
 MonoBehaviour:
   m_ObjectHideFlags: 0
